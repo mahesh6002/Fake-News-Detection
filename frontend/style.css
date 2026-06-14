@@ -1,0 +1,467 @@
+/* ==========================================================================
+   Veritas — Design System & Stylesheet
+   Design Philosophy: Ruthless Simplicity, Sharp Typography, Precise Spacing.
+   ========================================================================== */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* --- Reset & Base Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #0a0a0a;
+  color: #ededed;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 13px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* --- Centered Layout Wrapper --- */
+.viewport-wrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.panel-container {
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* --- Minimalist Header --- */
+.app-header {
+  margin-bottom: 28px;
+}
+
+.header-main {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.header-logo {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.header-version {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  background-color: #161616;
+  color: #71717a;
+  border: 1px solid #1c1c1e;
+  border-radius: 3px;
+  padding: 1px 5px;
+}
+
+.header-tagline {
+  font-size: 13px;
+  color: #71717a;
+  margin-top: 6px;
+}
+
+/* --- Main Card Surface --- */
+.console-card {
+  background-color: #111111;
+  border: 1px solid #1c1c1e;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.console-body {
+  padding: 20px;
+}
+
+/* --- Text Input Header & Label --- */
+.input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.console-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8e8e93;
+}
+
+.char-limit {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #52525b;
+}
+
+/* --- Input Console --- */
+textarea {
+  width: 100%;
+  height: 160px;
+  background-color: #09090b;
+  border: 1px solid #1c1c1e;
+  border-radius: 4px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  line-height: 1.6;
+  padding: 12px 14px;
+  resize: none;
+  outline: none;
+  transition: border-color 150ms ease;
+}
+
+textarea::placeholder {
+  color: #444444;
+}
+
+textarea:focus {
+  border-color: #3a3a3c;
+}
+
+/* --- Primary Analyze Action Button --- */
+button {
+  display: block;
+  width: 100%;
+  margin-top: 16px;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 4px;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 13px;
+  padding: 10px 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 150ms ease, opacity 150ms ease;
+}
+
+button:hover {
+  background-color: #e4e4e7;
+}
+
+button:active {
+  opacity: 0.9;
+}
+
+button:disabled {
+  background-color: #161616;
+  color: #52525b;
+  border: 1px solid #1c1c1e;
+  cursor: not-allowed;
+}
+
+/* --- Loading Spinner (Minimal & Clean) --- */
+.spinner-container {
+  margin-top: 16px;
+  background-color: #111111;
+  border: 1px solid #1c1c1e;
+  border-radius: 4px;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.spinner-indicator {
+  position: relative;
+  width: 14px;
+  height: 14px;
+}
+
+.spinner-line {
+  width: 100%;
+  height: 100%;
+  border: 1.5px solid #1c1c1e;
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner-text {
+  font-size: 13px;
+  color: #8e8e93;
+}
+
+/* --- Result Section --- */
+#result {
+  margin-top: 24px;
+}
+
+#result:not(.d-none) {
+  animation: fadeIn 150ms ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.result-card {
+  background-color: #111111;
+  border: 1px solid #1c1c1e;
+  border-radius: 4px;
+  padding: 20px;
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.metric-group.align-right {
+  align-items: flex-end;
+}
+
+.metric-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #8e8e93;
+}
+
+/* --- Dynamic Badge Classes (from app.js overrides) --- */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 4px;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+}
+
+/* Specific overrides for classes set dynamically by app.js */
+.badge.fs-4 {
+  font-size: 12px !important;
+}
+
+.badge.px-3 {
+  padding-left: 10px !important;
+  padding-right: 10px !important;
+}
+
+.badge.py-2 {
+  padding-top: 4px !important;
+  padding-bottom: 4px !important;
+}
+
+.bg-success {
+  color: #22c55e !important;
+  background-color: rgba(34, 197, 94, 0.08) !important;
+  border: 1px solid rgba(34, 197, 94, 0.15) !important;
+}
+
+.bg-danger {
+  color: #ef4444 !important;
+  background-color: rgba(239, 68, 68, 0.08) !important;
+  border: 1px solid rgba(239, 68, 68, 0.15) !important;
+}
+
+/* --- Progress Track & Dynamic Fill Bar --- */
+.progress-track {
+  width: 100%;
+  height: 3px;
+  background-color: #1c1c1e;
+  border-radius: 1.5px;
+  overflow: hidden;
+  margin: 18px 0 20px 0;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0;
+  border-radius: 1.5px;
+  transition: width 300ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.progress-bar.bg-success {
+  background-color: #22c55e !important;
+}
+
+.progress-bar.bg-danger {
+  background-color: #ef4444 !important;
+}
+
+/* --- Metrics Grid --- */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.metric-block {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background-color: #161616;
+  border: 1px solid #1c1c1e;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.block-label {
+  font-size: 10px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #71717a;
+}
+
+/* --- Typography Helper Classes --- */
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+.bold-val {
+  font-size: 18px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.block-val {
+  font-size: 13px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+/* --- Utility / Control Classes --- */
+.d-none {
+  display: none !important;
+}
+
+/* --- Error Messages --- */
+.error-message {
+  margin-top: 16px;
+  background-color: rgba(239, 68, 68, 0.08);
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  border-radius: 4px;
+  color: #ef4444;
+  padding: 12px 16px;
+  font-size: 13px;
+}
+
+/* --- Related Verified Sources --- */
+.source-card {
+  margin-top: 16px;
+}
+
+.source-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.source-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.source-tooltip {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #71717a;
+  cursor: help;
+  border: 1px solid #1c1c1e;
+  border-radius: 3px;
+  padding: 1px 6px;
+  background-color: #161616;
+}
+
+.source-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.source-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-bottom: 1px solid #1c1c1e;
+  padding-bottom: 12px;
+}
+
+.source-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.source-meta {
+  font-size: 11px;
+  color: #71717a;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.source-meta-dot {
+  color: #52525b;
+}
+
+.source-link {
+  font-size: 13px;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 150ms ease;
+  line-height: 1.4;
+}
+
+.source-link:hover {
+  color: #22c55e;
+}
+
+.source-empty {
+  font-size: 13px;
+  color: #71717a;
+  text-align: center;
+  padding: 16px 0;
+}
+
+.source-relevance {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: #22c55e;
+  background-color: rgba(34, 197, 94, 0.08);
+  border: 1px solid rgba(34, 197, 94, 0.15);
+  border-radius: 3px;
+  padding: 0px 4px;
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veritas — Credibility Detector</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="viewport-wrapper">
+    <div class="panel-container">
+      
+      <!-- Minimal Header -->
+      <header class="app-header">
+        <div class="header-main">
+          <span class="header-logo">Veritas</span>
+          <span class="header-version">System v1.0</span>
+        </div>
+        <p class="header-tagline">Linguistic credibility detection engine.</p>
+      </header>
+
+      <!-- Input Console -->
+      <main class="console-card">
+        <div class="console-body">
+          <div class="input-header">
+            <label for="articleText" class="console-label">Article Text</label>
+            <span class="char-limit">Minimum 10 characters</span>
+          </div>
+          <textarea id="articleText" placeholder="Paste full article text here to analyze linguistic authenticity..."></textarea>
+          <button id="analyzeBtn" onclick="analyze()">Run Verification</button>
+        </div>
+      </main>
+
+      <!-- Processing State -->
+      <div id="spinner" class="d-none spinner-container">
+        <div class="spinner-indicator">
+          <div class="spinner-line"></div>
+        </div>
+        <span class="spinner-text">Analyzing text signatures...</span>
+      </div>
+
+      <!-- Analysis Results -->
+      <div id="result" class="d-none">
+        <div class="result-card">
+          <div class="result-header">
+            <div class="metric-group">
+              <span class="metric-label">Verdict</span>
+              <span id="labelBadge" class="badge">-</span>
+            </div>
+            <div class="metric-group align-right">
+              <span class="metric-label">Confidence</span>
+              <span id="confidenceText" class="mono bold-val">-</span>
+            </div>
+          </div>
+
+          <div class="progress-track">
+            <div id="confidenceBar" class="progress-bar"></div>
+          </div>
+
+          <div class="metrics-grid">
+            <div class="metric-block">
+              <span class="block-label">Real Probability</span>
+              <span id="realProb" class="mono block-val">-</span>
+            </div>
+            <div class="metric-block">
+              <span class="block-label">Fake Probability</span>
+              <span id="fakeProb" class="mono block-val">-</span>
+            </div>
+            <div class="metric-block">
+              <span class="block-label">Latency</span>
+              <span id="processingTime" class="mono block-val">-</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Source Verification Panel -->
+      <div id="sourceCheckPanel" class="d-none">
+        <div class="result-card source-card">
+          <div class="source-header">
+            <div class="source-title-group">
+              <span class="metric-label">Related Verified Sources</span>
+              <span class="source-tooltip" title="News index queries are restricted to articles published within the last 30 days on the free tier.">ℹ Limited to past 30 days</span>
+            </div>
+          </div>
+          <ul id="sourceList" class="source-list">
+            <!-- Dynamically populated -->
+          </ul>
+        </div>
+      </div>
+
+      <!-- Error Display -->
+      <div id="errorBox" class="d-none error-message"></div>
+
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

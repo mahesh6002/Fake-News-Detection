@@ -1,0 +1,10 @@
+version: "3.9"
+services:
+  app:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - MODEL_PATH=models/pipeline.pkl
+    volumes:
+      - ./models:/app/models   # Persist model artifacts

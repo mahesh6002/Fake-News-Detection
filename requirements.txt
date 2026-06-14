@@ -1,0 +1,14 @@
+fastapi
+uvicorn[standard]
+pydantic
+slowapi
+pandas
+numpy
+scikit-learn
+nltk
+joblib
+python-multipart
+matplotlib
+kagglehub
+python-dotenv
+httpx
