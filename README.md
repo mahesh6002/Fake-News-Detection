@@ -33,6 +33,16 @@ To provide real-world context, the application triggers a parallel search after 
 
 The mean F1-score dropped from 0.92 to 0.91 when I expanded the dataset because the LIAR dataset contains short, sparse statements that lack the rich context and vocabulary found in the full-length articles of the Kaggle dataset.
 
+## Evaluation Plots
+
+![Confusion Matrix](docs/confusion_matrix.png)
+Confusion matrix showing the class-level classification breakdown on the test set.
+
+![ROC Curve](docs/roc_curve.png)
+Receiver Operating Characteristic (ROC) curve showing the true positive rate versus the false positive rate, resulting in a 0.9799 area under the curve.
+
+The confusion matrix illustrates the balance of prediction errors between the FAKE and REAL classes. With a highly balanced test split, the model maintains a low rate of false positives and false negatives, indicating stable performance across both domains. The ROC curve further validates this class separation, showing a steep climb toward the top-left corner and achieving a 0.9799 area under the curve (ROC-AUC). This high AUC metric demonstrates that the model is highly effective at separating the two classes under varying classification thresholds.
+
 ## Tech Stack
 
 ML: Python, Scikit-Learn, NLTK, TF-IDF, Logistic Regression
